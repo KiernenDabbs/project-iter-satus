@@ -1,0 +1,45 @@
+[gd_scene load_steps=2 format=3 uid="uid://beisuc8wuyfst"]
+
+[ext_resource type="Script" path="res://Scripts/StartMenus/options_menu.gd" id="1_vf36u"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vf36u")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 45.0
+offset_top = -145.0
+offset_right = 233.0
+offset_bottom = -38.0
+grow_vertical = 0
+
+[node name="VolumeButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Volume"
+
+[node name="UnusedButton1" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "(Unused)"
+
+[node name="BackButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Back"
+
+[node name="Node2D" type="Node2D" parent="."]
+position = Vector2(45, 538)
+
+[connection signal="pressed" from="VBoxContainer/VolumeButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/VolumeButton" to="." method="_on_volume_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/UnusedButton1" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/UnusedButton1" to="." method="_on_unused_button_1_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
