@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED = 4
-@export var gravity = 30
+@export var gravity = 3
 @export var JUMP_STRENGTH = 6
 
 @onready var ap = $AnimationPlayer
@@ -10,7 +10,7 @@ extends CharacterBody2D
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if !is_on_floor():
-		velocity.y += gravity
+		velocity.y += gravity * 10
 		if velocity.y > 1000:
 			velocity.y = 1000
 
