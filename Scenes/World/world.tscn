@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://brqsomh0gjfnl"]
+[gd_scene load_steps=7 format=3 uid="uid://brqsomh0gjfnl"]
 
 [ext_resource type="PackedScene" uid="uid://yfwfh0p11qru" path="res://Scenes/Characters/player.tscn" id="1_toncw"]
 [ext_resource type="PackedScene" uid="uid://morxil6rll6k" path="res://Scenes/World/Tiles/box.tscn" id="2_urc3q"]
+[ext_resource type="PackedScene" uid="uid://cm841smiigulh" path="res://Scenes/World/Tiles/tile_map.tscn" id="3_m1cxd"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p5tef"]
 
@@ -16,11 +17,11 @@ size = Vector2(999, 15)
 position = Vector2(605, 572)
 SPEED = 5
 gravity = 4
-JUMP_STRENGTH = 8
+JUMP_STRENGTH = 10
 
 [node name="Platform" type="StaticBody2D" parent="."]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(600, 550)
+position = Vector2(-1613, -442)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
 material = SubResource("CanvasItemMaterial_p5tef")
@@ -32,10 +33,11 @@ mesh = SubResource("QuadMesh_8rew8")
 position = Vector2(-0.5, 100)
 scale = Vector2(1, 10)
 shape = SubResource("RectangleShape2D_pte7x")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Platform2" type="StaticBody2D" parent="."]
 modulate = Color(0, 0, 0, 1)
-position = Vector2(1599, 473)
+position = Vector2(-1615, -227)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform2"]
 material = SubResource("CanvasItemMaterial_p5tef")
@@ -47,6 +49,39 @@ mesh = SubResource("QuadMesh_8rew8")
 position = Vector2(-0.5, 100)
 scale = Vector2(1, 10)
 shape = SubResource("RectangleShape2D_pte7x")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
-[node name="Box" parent="." instance=ExtResource("2_urc3q")]
-position = Vector2(333, 335)
+[node name="Platform3" type="StaticBody2D" parent="."]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-1607, -47)
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="Platform3"]
+material = SubResource("CanvasItemMaterial_p5tef")
+position = Vector2(0, 100)
+scale = Vector2(1000, 150)
+mesh = SubResource("QuadMesh_8rew8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform3"]
+position = Vector2(-0.5, 100)
+scale = Vector2(1, 10)
+shape = SubResource("RectangleShape2D_pte7x")
+debug_color = Color(0, 0.6, 0.7, 0.42)
+
+[node name="BoxWall1" parent="." instance=ExtResource("2_urc3q")]
+position = Vector2(200, 473)
+
+[node name="BoxWall1" parent="BoxWall1" instance=ExtResource("2_urc3q")]
+position = Vector2(0, -201)
+
+[node name="Box1" parent="." instance=ExtResource("2_urc3q")]
+position = Vector2(1464, 474)
+
+[node name="BoxWall2" parent="." instance=ExtResource("2_urc3q")]
+position = Vector2(1991, 321)
+
+[node name="Boxwall2" parent="BoxWall2" instance=ExtResource("2_urc3q")]
+position = Vector2(0, -200)
+
+[node name="TileMap" parent="." instance=ExtResource("3_m1cxd")]
+scale = Vector2(4, 4)
+layer_0/tile_data = PackedInt32Array(589826, 65536, 0, 589827, 65536, 0, 589828, 65536, 0, 589829, 65536, 0, 589830, 65536, 0, 589831, 65536, 0, 589832, 65536, 0, 589833, 65536, 0, 589834, 65536, 0, 589835, 65536, 0, 589836, 65536, 0, 589837, 65536, 0, 589838, 65536, 0, 589839, 65536, 0, 589840, 65536, 0, 589841, 65536, 0, 589842, 65536, 0, 589843, 65536, 0, 589844, 65536, 0, 589845, 65536, 0, 589846, 65536, 0, 589847, 65536, 0, 589848, 65536, 0, 589849, 65536, 0, 589850, 65536, 0, 589851, 65536, 0, 589852, 65536, 0, 589853, 65536, 0, 589854, 65536, 0, 589855, 65536, 0, 589856, 65536, 0, 589857, 65536, 0, 589858, 65536, 0, 589859, 65536, 0, 589860, 131072, 0, 589825, 0, 0, 655362, 65536, 1, 655363, 65536, 1, 655364, 65536, 1, 655365, 65536, 1, 655366, 65536, 1, 655367, 65536, 1, 655368, 65536, 1, 655369, 65536, 1, 655370, 65536, 1, 655371, 65536, 1, 655372, 65536, 1, 655373, 65536, 1, 655374, 65536, 1, 655375, 65536, 1, 655376, 65536, 1, 655377, 65536, 1, 655378, 65536, 1, 655379, 65536, 1, 655380, 65536, 1, 655381, 65536, 1, 655382, 65536, 1, 655383, 65536, 1, 655384, 65536, 1, 655385, 65536, 1, 655386, 65536, 1, 655387, 65536, 1, 655388, 65536, 1, 655389, 65536, 1, 655390, 65536, 1, 655391, 65536, 1, 655392, 65536, 1, 655393, 65536, 1, 655394, 65536, 1, 655395, 65536, 1, 655396, 131072, 1, 720932, 131072, 2, 720897, 0, 2, 655361, 0, 1, 720898, 65536, 2, 720899, 65536, 2, 720900, 65536, 2, 720901, 65536, 2, 720902, 65536, 2, 720903, 65536, 2, 720904, 65536, 2, 720905, 65536, 2, 720906, 65536, 2, 720907, 65536, 2, 720908, 65536, 2, 720909, 65536, 2, 720910, 65536, 2, 720911, 65536, 2, 720912, 65536, 2, 720913, 65536, 2, 720914, 65536, 2, 720915, 65536, 2, 720916, 65536, 2, 720917, 65536, 2, 720918, 65536, 2, 720919, 65536, 2, 720920, 65536, 2, 720921, 65536, 2, 720922, 65536, 2, 720923, 65536, 2, 720924, 65536, 2, 720925, 65536, 2, 720926, 65536, 2, 720927, 65536, 2, 720928, 65536, 2, 720929, 65536, 2, 720930, 65536, 2, 720931, 65536, 2)

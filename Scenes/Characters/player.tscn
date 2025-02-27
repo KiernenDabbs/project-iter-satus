@@ -403,6 +403,7 @@ hframes = 10
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-6, -90)
 shape = ExtResource("3_uc5c1")
+debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -110)
@@ -413,3 +414,13 @@ libraries = {
 "": SubResource("AnimationLibrary_1e0oe")
 }
 autoplay = "idle"
+
+[node name="CrouchRaycast1" type="RayCast2D" parent="."]
+position = Vector2(-48, -57)
+scale = Vector2(5, 5)
+target_position = Vector2(0, -25)
+
+[node name="CrouchRaycast2" type="RayCast2D" parent="."]
+position = Vector2(36, -57)
+scale = Vector2(5, 5)
+target_position = Vector2(0, -25)

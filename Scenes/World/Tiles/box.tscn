@@ -14,3 +14,4 @@ mesh = SubResource("QuadMesh_c1g31")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ehtpm")
+debug_color = Color(0, 0.6, 0.7, 0.42)

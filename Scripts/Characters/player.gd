@@ -7,8 +7,12 @@ extends CharacterBody2D
 @onready var ap = $AnimationPlayer
 @onready var sprite = $Sprite2D
 @onready var cshape = $CollisionShape2D
+@onready var crouch_raycast1 = $CrouchRaycast1
+@onready var crouch_raycast2 = $CrouchRaycast2
 
+#detect crouching
 var is_crouching = false
+var stuck_under_object = false
 
 #preloading
 var standing_cshape = preload("res://Resources/knight_standing_cshape.tres")
@@ -37,11 +41,24 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("crouch"):
 		crouch()
 	elif Input.is_action_just_released("crouch"):
-		stand()
+		if above_head_is_empty():
+			stand()
+		else:
+			if stuck_under_object != true:
+				stuck_under_object = true
+
+	if stuck_under_object && above_head_is_empty():
+		if !Input.is_action_pressed("crouch"):
+			stand()
+			stuck_under_object = false
 
 	move_and_slide()
 	
 	update_animations(horizontal_direction)
+	
+func above_head_is_empty() -> bool:
+	var result = !crouch_raycast1.is_colliding() && !crouch_raycast2.is_colliding()
+	return result
 	
 func update_animations(horizontal_direction):
 	if is_on_floor():
