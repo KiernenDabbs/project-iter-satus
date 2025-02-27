@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://brqsomh0gjfnl"]
+[gd_scene load_steps=6 format=3 uid="uid://brqsomh0gjfnl"]
 
 [ext_resource type="PackedScene" uid="uid://yfwfh0p11qru" path="res://Scenes/Characters/player.tscn" id="1_toncw"]
+[ext_resource type="PackedScene" uid="uid://morxil6rll6k" path="res://Scenes/World/Tiles/box.tscn" id="2_urc3q"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_p5tef"]
 
@@ -14,9 +15,11 @@ size = Vector2(999, 15)
 [node name="Player" parent="." instance=ExtResource("1_toncw")]
 position = Vector2(605, 572)
 SPEED = 5
+gravity = 4
 JUMP_STRENGTH = 8
 
 [node name="Platform" type="StaticBody2D" parent="."]
+modulate = Color(0, 0, 0, 1)
 position = Vector2(600, 550)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform"]
@@ -31,6 +34,7 @@ scale = Vector2(1, 10)
 shape = SubResource("RectangleShape2D_pte7x")
 
 [node name="Platform2" type="StaticBody2D" parent="."]
+modulate = Color(0, 0, 0, 1)
 position = Vector2(1599, 473)
 
 [node name="MeshInstance2D" type="MeshInstance2D" parent="Platform2"]
@@ -43,3 +47,6 @@ mesh = SubResource("QuadMesh_8rew8")
 position = Vector2(-0.5, 100)
 scale = Vector2(1, 10)
 shape = SubResource("RectangleShape2D_pte7x")
+
+[node name="Box" parent="." instance=ExtResource("2_urc3q")]
+position = Vector2(333, 362)
