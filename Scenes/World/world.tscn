@@ -68,16 +68,16 @@ shape = SubResource("RectangleShape2D_pte7x")
 debug_color = Color(0, 0.6, 0.7, 0.42)
 
 [node name="BoxWall1" parent="." instance=ExtResource("2_urc3q")]
-position = Vector2(200, 473)
+position = Vector2(239, 475)
 
 [node name="BoxWall1" parent="BoxWall1" instance=ExtResource("2_urc3q")]
-position = Vector2(0, -201)
+position = Vector2(0, -200)
 
 [node name="Box1" parent="." instance=ExtResource("2_urc3q")]
-position = Vector2(1464, 474)
+position = Vector2(1464, 476)
 
 [node name="BoxWall2" parent="." instance=ExtResource("2_urc3q")]
-position = Vector2(1991, 321)
+position = Vector2(1991, 323)
 
 [node name="Boxwall2" parent="BoxWall2" instance=ExtResource("2_urc3q")]
 position = Vector2(0, -200)
